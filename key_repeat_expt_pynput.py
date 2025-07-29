@@ -36,11 +36,12 @@ class KeyPressApp:
         times = [t - t0 for t, _ in self.time_data]
         states = [s for _, s in self.time_data]
 
-        plt.figure(figsize=(8, 4))
+        plt.figure(figsize=(8, 2))
         plt.step(times, states, where='post', marker='o')
-        plt.title("Key Press (+1) / Release (-1) Timeline")
+        plt.title("MacOS pynput")
         plt.xlabel("Time since first event (s)")
         plt.ylabel("State")
+        plt.ylim((-2, 2))
         plt.yticks([-1, 1], labels=["Released", "Pressed"])
         plt.grid(True)
         plt.tight_layout()
